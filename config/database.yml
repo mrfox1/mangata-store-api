@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: mangata_store_api_development
+
+test:
+  <<: *default
+  database: mangata_store_api_test
+
+production:
+  <<: *default
+  database: mangata_store_api_production
+  username: mangata_store_api
+  password: <%= ENV["MANGATA_STORE_API_DATABASE_PASSWORD"] %>
