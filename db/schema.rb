@@ -17,7 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_02_144910) do
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.string "image"
-    t.bigint "category_id", null: false
+    t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_on_category_id"
