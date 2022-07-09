@@ -15,12 +15,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_135329) do
   enable_extension "plpgsql"
 
   create_table "attachments", force: :cascade do |t|
-    t.string "attachment_type"
-    t.bigint "attachment_id"
+    t.string "attachable_type"
+    t.bigint "attachable_id"
     t.string "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["attachment_type", "attachment_id"], name: "index_attachments_on_attachment"
+    t.index ["attachable_type", "attachable_id"], name: "index_attachments_on_attachable"
   end
 
   create_table "categories", force: :cascade do |t|
