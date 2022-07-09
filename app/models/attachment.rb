@@ -10,5 +10,9 @@
 #  updated_at      :datetime         not null
 #
 class Attachment < ApplicationRecord
-  belongs_to :attachment
+  belongs_to :attachable, polymorphic: true
+
+  validates :attachment, presence: true
+
+  mount_uploader :attachment, AttachmentUploader
 end
