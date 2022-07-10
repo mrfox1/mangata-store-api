@@ -1,3 +1,7 @@
 en:
   errors:
+    email_incorrect: 'The email is incorrect. Please, make sure you entered correct data'
+    email_registered: 'This email address is already registered.'
+    is_incorrect: 'is incorrect'
     not_found: 'not found'
+    phone_number_registered: 'This phone number is already registered.'
