@@ -1,8 +1,8 @@
 module Api
-  # include SessionService
+  include SessionService
 
   class ApiController < ApplicationController
-    # helper_method SessionService.instance_methods
+    helper_method SessionService.instance_methods
     rescue_from ActiveRecord::RecordNotFound, with: :not_found_record
 
     protected
@@ -17,6 +17,10 @@ module Api
 
     def not_found_record(exception)
       render_errors "#{ exception.model } #{ I18n.t('errors.not_found') }", :not_found
+    end
+
+    def permited_parameter
+      @permited_parameter ||= proc { |key| params.permit(key).try(:[], key) }
     end
   end
 end

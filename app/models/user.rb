@@ -43,6 +43,31 @@ class User < ApplicationRecord
     secure_hash("#{ string }--#{ self.salt }")
   end
 
+  def authenticate?(password)
+    self.encrypted_password == self.encrypt(password)
+  end
+
+  def info
+    profile = self.attributes
+                  .symbolize_keys
+                  .slice(
+                    :id,
+                    :email,
+                    :phone_number,
+                    :full_name,
+                    :state,
+                    :city,
+                    :address,
+                    :newsletter,
+                    :created_at,
+                    :updated_at
+                  )
+
+    profile[:avatar_image] = self.image if self['image'].present?
+    profile[:social_type] = self.social_type if self.social_type.present?
+    profile
+  end
+
   private
 
   def validate_password?
