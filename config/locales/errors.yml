@@ -7,4 +7,5 @@ en:
     is_incorrect: 'is incorrect'
     not_found: 'not found'
     phone_number_registered: 'This phone number is already registered.'
+    user_not_found: 'User not found'
     wrong_email_or_password: 'Wrong email or password.'
