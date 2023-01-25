@@ -13,12 +13,8 @@ module SessionService
   end
 
   def current_session
-    @current_session ||= Session.includes(:user).find_by_id(
-      [
-        params[:session_token],
-        request.headers['Session-Token']
-      ].compact.first
-    )
+    token = params[:session_token] || request.headers['Session-Token']
+    @current_session ||= Session.includes(:user).find_by(id: token)
   end
 
   def sign_out
