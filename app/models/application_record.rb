@@ -1,6 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  EMAIL_REGEXP = /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/
+
   def self.build_image(id, file, content_type = 'image')
     return if file.blank?
 

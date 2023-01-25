@@ -10,9 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_09_135329) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_10_140754) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "attachments", force: :cascade do |t|
     t.string "attachable_type"
@@ -30,6 +32,31 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_09_135329) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_categories_on_category_id"
+  end
+
+  create_table "sessions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "encrypted_password"
+    t.string "salt"
+    t.string "email"
+    t.string "phone_number"
+    t.string "token"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "state"
+    t.string "city"
+    t.string "address"
+    t.string "social_id"
+    t.integer "social_type"
+    t.integer "role", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "categories", "categories"
