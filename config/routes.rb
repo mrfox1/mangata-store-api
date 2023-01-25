@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :sessions, only: %i(create) do
+      resources :users, only: :create do
+        collection do
+          get :profile
+
+          put :profile, action: :update
+          delete :profile, action: :destroy
+        end
+      end
+
+      resources :sessions, only: :create do
         collection do
           delete :logout, action: :destroy
-          post :social_login
         end
       end
 
