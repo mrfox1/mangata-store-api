@@ -1,7 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+if Rails.env.development?
+  Category.create(title: 'Candles', attachment_attributes: { remote_attachment_url: 'https://www.ikea.com/gb/en/images/products/fenomen-unscented-block-candle-natural__0904463_pe586190_s5.jpg' })
+  Category.create(title: 'Perfumes', attachment_attributes: { remote_attachment_url: 'https://irecommend.ru/sites/default/files/product-images/158247/HZKrJ6tS5mPLe15FiyM1DA.png' })
+end

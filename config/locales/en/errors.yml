@@ -1,0 +1,11 @@
+en:
+  errors:
+    access_denied: 'Access Denied!'
+    blank: "can't be blank"
+    email_incorrect: 'The email is incorrect. Please, make sure you entered correct data'
+    email_registered: 'This email address is already registered.'
+    is_incorrect: 'is incorrect'
+    not_found: 'not found'
+    phone_number_registered: 'This phone number is already registered.'
+    user_not_found: 'User not found'
+    wrong_email_or_password: 'Wrong email or password.'
