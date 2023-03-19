@@ -3,8 +3,8 @@
 # Table name: attachments
 #
 #  id              :bigint           not null, primary key
-#  attachment_type :string
-#  attachment_id   :bigint
+#  attachable_type :string
+#  attachable_id   :bigint
 #  attachment      :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -16,3 +16,6 @@ class Attachment < ApplicationRecord
 
   mount_uploader :attachment, AttachmentUploader
 end
+# TODO: add fix price and discount
+# add option discount
+# choise max discount
