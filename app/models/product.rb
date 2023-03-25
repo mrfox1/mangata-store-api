@@ -8,6 +8,8 @@
 #  category_id :bigint           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  price       :bigint
+#  discount    :integer
 #
 class Product < ApplicationRecord
   belongs_to :category
