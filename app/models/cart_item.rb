@@ -14,4 +14,6 @@ class CartItem < ApplicationRecord
   belongs_to :product
   belongs_to :cart
   belongs_to :order
+
+  validates :quantity, presence: true, minimum: 1
 end
