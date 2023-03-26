@@ -20,5 +20,6 @@ class Product < ApplicationRecord
 
   validates :title, :category_id, :description, :price, :in_stock, presence: true
   validates :title, length: { in: 6..120 }
-  validates :discount, minimum: 0, maximum: 100
+  validates :discount, numericality: { only_integer: true, in: 1..100 }
+  validates :price, numericality: { only_integer: true }
 end
