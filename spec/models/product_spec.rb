@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :bigint           not null, primary key
+#  title       :string
+#  description :text
+#  category_id :bigint           not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  price       :bigint
+#  discount    :integer
+#  in_stock    :boolean
+#
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
