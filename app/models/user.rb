@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                 :bigint           not null, primary key
+#  encrypted_password :string
+#  salt               :string
+#  email              :string
+#  phone_number       :string
+#  token              :string
+#  first_name         :string
+#  last_name          :string
+#  state              :string
+#  city               :string
+#  address            :string
+#  social_id          :string
+#  social_type        :integer
+#  role               :integer          default("customer")
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
 class User < ApplicationRecord
   attr_accessor :password, :password_confirmation, :remove_image
 
