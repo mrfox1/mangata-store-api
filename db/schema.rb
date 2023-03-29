@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_25_170933) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_28_163414) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -60,6 +60,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_25_170933) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "product_options", force: :cascade do |t|
+    t.integer "option_type"
+    t.string "option_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
