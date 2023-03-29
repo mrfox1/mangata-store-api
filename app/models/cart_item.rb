@@ -15,5 +15,7 @@ class CartItem < ApplicationRecord
   belongs_to :cart
   belongs_to :order
 
-  validates :quantity, presence: true, minimum: 1
+  has_many :cart_item_options, dependent: :destroy
+
+  validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 end
